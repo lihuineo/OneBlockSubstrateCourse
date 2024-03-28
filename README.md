@@ -6,5 +6,6 @@
 作业解答：  
 基础要求：data_helper::sort_basic()
 提高部分：data_helper::sort_advanced()
-单元测试部分：tests::sort_basic_test(), tests::sort_advanced_test()
-运行截图：
+单元测试部分：tests::sort_basic_test(), tests::sort_advanced_test()  
+运行截图：  
+<img width="1430" alt="WeChat4d5237ebfb2016b91c47fc2db1628382" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/631d826e-a9a0-497a-b469-369ecbbc2ac8">
