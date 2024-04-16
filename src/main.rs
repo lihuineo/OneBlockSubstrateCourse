@@ -40,4 +40,16 @@ mod tests {
         assert_eq!(green_light.get_duration(), 60);
         assert_eq!(yellow_light.get_duration(), 3);
     }
+
+    #[test]
+    fn get_sum_test() {
+        use crate::topic_4::number_cal::Cal;
+
+        let vec1: Vec<u32> = vec![7, 9, 0, 6, 8, 12, 3];
+        assert!(!Cal::get_sum(&vec1).is_none());
+        assert!(Cal::get_sum(&vec1).unwrap() <= u32::MAX);
+
+        let vec2: Vec<u32> = vec![11, 12, u32::MAX, 1, 0, 12, 3];
+        assert!(Cal::get_sum(&vec2).is_none());
+    }
 }
