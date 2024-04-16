@@ -16,5 +16,6 @@
 3.实现一个打印图形面积的函数，它接收一个可以计算面积的类型作为参数，比如圆形，三角形，正方形，需要用到泛型和泛型约束
 
 作业四解答：  
-1.topic_4/traffic_light, 分别定义枚举TrafficLight和特性DurationTime。DurationTime的get_duration获取时间。单元测试traffic_light_test()
-2.topic_4/number_cal, get_sum()用于计算u32整数求和。单元测试get_sum_test()
+1.topic_4/traffic_light, 分别定义枚举TrafficLight和特性DurationTime。DurationTime的get_duration获取时间。单元测试traffic_light_test()  
+2.topic_4/number_cal, get_sum()用于计算u32整数求和。单元测试get_sum_test()  
+3.topic_4/shape_cal, get_area()用于计算面积，接收geo参数，该参数需要服从需要服从Geometry泛型约束。Geometry定义了可以计算面积的图形，它需要实现cal_area方法。单元测试get_area_test()  

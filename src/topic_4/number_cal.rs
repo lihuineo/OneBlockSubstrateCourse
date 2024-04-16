@@ -1,7 +1,7 @@
-pub struct Cal {}
+pub struct NumCalculator {}
 
 #[allow(dead_code)]
-impl Cal {
+impl NumCalculator {
     /*
     u32类型的整数集合求和
     */

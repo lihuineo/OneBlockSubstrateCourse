@@ -3,6 +3,7 @@ fn main() {}
 mod topic_4;
 mod utils;
 mod tests {
+    use crate::topic_4::shape_cal::{Circle, Rectangle, Squard};
 
     #[test]
     fn sort_basic_test() {
@@ -43,13 +44,35 @@ mod tests {
 
     #[test]
     fn get_sum_test() {
-        use crate::topic_4::number_cal::Cal;
+        use crate::topic_4::number_cal::NumCalculator;
 
         let vec1: Vec<u32> = vec![7, 9, 0, 6, 8, 12, 3];
-        assert!(!Cal::get_sum(&vec1).is_none());
-        assert!(Cal::get_sum(&vec1).unwrap() <= u32::MAX);
+        assert!(!NumCalculator::get_sum(&vec1).is_none());
+        assert!(NumCalculator::get_sum(&vec1).unwrap() <= u32::MAX);
 
         let vec2: Vec<u32> = vec![11, 12, u32::MAX, 1, 0, 12, 3];
-        assert!(Cal::get_sum(&vec2).is_none());
+        assert!(NumCalculator::get_sum(&vec2).is_none());
+    }
+
+    #[test]
+    fn get_area_test() {
+        use crate::topic_4::shape_cal::ShapeCalculator;
+        use std::f32::consts::PI;
+
+        let rect = Rectangle {
+            width: 6.0,
+            height: 7.0,
+        };
+
+        let squa = Squard {
+            width: 8.0,
+            height: 8.0,
+        };
+
+        let circle = Circle { rad: 3.0 };
+
+        assert_eq!(ShapeCalculator::get_area(rect), 42.0);
+        assert_eq!(ShapeCalculator::get_area(squa), 64.0);
+        assert_eq!(ShapeCalculator::get_area(circle), PI * 3.0 * 3.0);
     }
 }
