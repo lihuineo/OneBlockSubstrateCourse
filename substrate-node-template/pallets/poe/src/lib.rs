@@ -44,7 +44,6 @@ pub mod pallet {
 	#[pallet::error]
 	pub enum Error<T> {
 		ProofAlreadyExist,
-		ClaimTooLong,
 		ClaimNotExist,
 		NotClaimOwner,
 		NotNeedTransfer,
