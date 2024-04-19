@@ -24,3 +24,22 @@
 
 3.topic_4/shape_cal, get_area()用于计算面积，接收geo参数，该参数服从Geometry泛型约束。Geometry定义了可以计算面积的图形，它需要实现cal_area方法。分别定义了Rectangle、Squard、Circle服从Geometry特性，实现了cal_area()方法。单元测试get_area_test()  
 <img width="1438" alt="求面积测试" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/487b19d0-ec4d-4a1f-91d4-2ea3f2081676">
+
+作业五要求：  
+1.实现存证模块的功能，包括：创建存证；撤销存证  
+2.为存证模块添加新的功能，转移存证，接收两个参数，一个是包含的哈希值，另一个是存证的接收账户地址  
+
+作业五解答：  
+1.substrate-node-template/pallet/poe/src下的lib\mock\tests, 其中lib定义了存证模块的功能, mock用于定义模拟环境下运行时的配置，tests是存证的单元测试  
+* create_claim()和revoke_claim()分别用于创建存证和撤销存证。分别对应的事件类型是ClaimCreated(),和ClaimRevoked()。错误类型有：创建错误ProofAlreadyExist（凭证已存在）， 撤销错误包括ClaimNotExist（凭证不存在）, NotClaimOwner（没有撤销权限）  
+* 单元测试包括创建存证create_claim_test()，撤销存证revoke_claim_test()，测试结果截图：  
+* 创建存证的功能验证截图：  
+
+* 撤销存证的功能验证截图：  
+
+2.substrate-node-template/pallet/poe/src下的lib\mock\tests, 其中lib定义了存证模块的功能, mock用于定义模拟环境下运行时的配置，tests是存证的单元测试  
+* 转移存证transfer_claim()。对应的事件类型是ClaimTransferred()。错误类型有：NotNeedTransfer（重复转移）  
+* 单元测试包括转移存证transfer_claim_test()，测试结果截图：  
+* 转移存证的功能验证截图：  
+
+

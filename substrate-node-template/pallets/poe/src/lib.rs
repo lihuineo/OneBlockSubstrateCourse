@@ -56,7 +56,6 @@ pub mod pallet {
 	impl<T: Config> Pallet<T> {
 		#[pallet::call_index(0)]
 		#[pallet::weight(0)]
-
 		pub fn create_claim(
 			origin: OriginFor<T>,
 			claim: BoundedVec<u8, T::MaxClaimLength>,
