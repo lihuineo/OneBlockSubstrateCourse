@@ -627,6 +627,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "bounded-vec"
+version = "0.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68534a48cbf63a4b1323c433cf21238c9ec23711e0df13b08c33e5c2082663ce"
+dependencies = [
+ "thiserror",
+]
+
+[[package]]
 name = "bs58"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4531,6 +4540,7 @@ dependencies = [
 name = "pallet-poe"
 version = "4.0.0-dev"
 dependencies = [
+ "bounded-vec",
  "frame-benchmarking",
  "frame-support",
  "frame-system",

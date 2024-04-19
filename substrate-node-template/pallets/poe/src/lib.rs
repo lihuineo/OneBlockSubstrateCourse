@@ -2,11 +2,16 @@
 #[allow(deprecated)]
 pub use pallet::*;
 
+#[cfg(test)]
+mod mock;
+
+#[cfg(test)]
+mod tests;
+
 #[frame_support::pallet]
 pub mod pallet {
 	use frame_support::{dispatch::DispatchResultWithPostInfo, pallet_prelude::*};
 	use frame_system::pallet_prelude::{OriginFor, *};
-	use sp_runtime::{print, traits::Printable};
 
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
