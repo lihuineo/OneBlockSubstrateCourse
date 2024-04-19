@@ -32,14 +32,24 @@
 作业五解答：  
 1.substrate-node-template/pallet/poe/src下的lib\mock\tests, 其中lib定义了存证模块的功能, mock用于定义模拟环境下运行时的配置，tests是存证的单元测试  
 * create_claim()和revoke_claim()分别用于创建存证和撤销存证。分别对应的事件类型是ClaimCreated(),和ClaimRevoked()。错误类型有：创建错误ProofAlreadyExist（凭证已存在）， 撤销错误包括ClaimNotExist（凭证不存在）, NotClaimOwner（没有撤销权限）  
-* 单元测试包括创建存证create_claim_test()，撤销存证revoke_claim_test()，测试结果截图：  
-* 创建存证的功能验证截图：  
+* 单元测试包括创建存证create_claim_test()，撤销存证revoke_claim_test()，测试结果截图：
+  <img width="1440" alt="创建凭证单测" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/01263097-1198-4be7-b028-6231eeebca2f">
 
-* 撤销存证的功能验证截图：  
+* 创建存证的功能验证截图：
+  <img width="1427" alt="创建凭证-1" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/39dfca32-2b73-4f67-af3e-8187b6bdd064">
+  <img width="1438" alt="创建凭证-2" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/3ffae51c-282d-44fc-ae0b-a61061874473">
+  <img width="1433" alt="创建凭证-3" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/1b1508bb-4715-40cb-a46a-b45a8f1239c6">
+
+* 撤销存证的功能验证截图：
+  <img width="1429" alt="删除凭证-1" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/d9abb3ae-6f1b-426e-aa4a-eca1ab65c211">
+  <img width="1428" alt="删除凭证-2" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/90083ee0-c466-4bf2-a657-e792b17fd502">
 
 2.substrate-node-template/pallet/poe/src下的lib\mock\tests, 其中lib定义了存证模块的功能, mock用于定义模拟环境下运行时的配置，tests是存证的单元测试  
 * 转移存证transfer_claim()。对应的事件类型是ClaimTransferred()。错误类型有：NotNeedTransfer（重复转移）  
-* 单元测试包括转移存证transfer_claim_test()，测试结果截图：  
-* 转移存证的功能验证截图：  
+* 单元测试包括转移存证transfer_claim_test()，测试结果截图：
+  <img width="1429" alt="转移凭证单测" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/bbc98541-2941-49ed-9a7f-df48bdeaad02">
 
-
+* 转移存证的功能验证截图：
+  <img width="1429" alt="转移凭证-1" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/46d51fb9-0a17-4688-a843-287ded0511db">
+  <img width="1424" alt="转移凭证-2" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/610c56bb-6f73-4ad5-9797-44550cf2e31d">
+  <img width="1441" alt="转移凭证-3" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/058b4843-b5ca-4c02-b372-c9c81d63765c">
