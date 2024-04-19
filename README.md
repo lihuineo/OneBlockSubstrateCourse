@@ -17,5 +17,10 @@
 
 作业四解答：  
 1.topic_4/traffic_light, 分别定义枚举TrafficLight和特性DurationTime。DurationTime的get_duration获取时间。单元测试traffic_light_test()  
+<img width="1418" alt="交通灯测试" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/6c892582-03f3-4a37-b2fe-aadc358487fb">
+
 2.topic_4/number_cal, get_sum()用于计算u32整数求和。单元测试get_sum_test()  
+<img width="1416" alt="求和测试" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/19b02fb3-b391-4c4f-9fba-1ff20ffe3532">
+
 3.topic_4/shape_cal, get_area()用于计算面积，接收geo参数，该参数服从Geometry泛型约束。Geometry定义了可以计算面积的图形，它需要实现cal_area方法。分别定义了Rectangle、Squard、Circle服从Geometry特性，实现了cal_area()方法。单元测试get_area_test()  
+<img width="1438" alt="求面积测试" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/487b19d0-ec4d-4a1f-91d4-2ea3f2081676">
