@@ -44,3 +44,30 @@ fn revoke_claim_test() {
 		);
 	})
 }
+
+#[test]
+fn transfer_claim_test() {
+	new_test_ext().execute_with(|| {
+		System::set_block_number(1);
+		let data = BoundedVec::<u8, ConstU32<512>>::try_from(vec![1; 10].clone()).unwrap();
+		let x_account = 123u64;
+		let y_account = 456u64;
+		let _ = PoeModule::create_claim(RuntimeOrigin::signed(x_account), data.clone());
+
+		assert_ok!(PoeModule::transfer_claim(
+			RuntimeOrigin::signed(x_account),
+			data.clone(),
+			y_account
+		));
+		System::assert_last_event(
+			Event::ClaimTransferred(x_account, data.clone(), y_account).into(),
+		);
+		assert_ne!(PoeModule::proofs(&data).unwrap().0, x_account);
+		assert_eq!(PoeModule::proofs(&data).unwrap().0, y_account);
+
+		assert_noop!(
+			PoeModule::transfer_claim(RuntimeOrigin::signed(y_account), data.clone(), y_account),
+			Error::<Test>::NotNeedTransfer
+		);
+	})
+}
