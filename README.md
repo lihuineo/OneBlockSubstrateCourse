@@ -34,6 +34,8 @@
 * create_claim()和revoke_claim()分别用于创建存证和撤销存证。分别对应的事件类型是ClaimCreated(),和ClaimRevoked()。错误类型有：创建错误ProofAlreadyExist（凭证已存在）， 撤销错误包括ClaimNotExist（凭证不存在）, NotClaimOwner（没有撤销权限）  
 * 单元测试包括创建存证create_claim_test()，撤销存证revoke_claim_test()，测试结果截图：
   <img width="1440" alt="创建凭证单测" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/01263097-1198-4be7-b028-6231eeebca2f">
+  <img width="1437" alt="删除凭证单测" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/074c76ed-dd57-427a-9c7a-35cfd32f7714">
+
 
 * 创建存证的功能验证截图：
   <img width="1427" alt="创建凭证-1" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/39dfca32-2b73-4f67-af3e-8187b6bdd064">
