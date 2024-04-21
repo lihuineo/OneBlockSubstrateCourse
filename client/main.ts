@@ -1,4 +1,5 @@
 import { ApiPromise, Keyring, WsProvider } from "@polkadot/api";
+import { u32 } from "@polkadot/types";
 import "@polkadot/api-augment";
 import type { FrameSystemAccountInfo } from "@polkadot/types/lookup";
 import { KeyringPair } from "@polkadot/keyring/types";
@@ -6,7 +7,7 @@ import { KeyringPair } from "@polkadot/keyring/types";
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 const WEB_SOCKET = "ws://127.0.0.1:9944";
 
-const con = async () => {
+const connect = async () => {
     const wsProvider = new WsProvider(WEB_SOCKET);
     const api = await ApiPromise.create({ provider: wsProvider, types: {} });
     await api.isReady;
@@ -22,6 +23,11 @@ const transfer = async (api: ApiPromise, from: KeyringPair, to: KeyringPair, amo
     await api.tx.balances.transfer(to.address, amount).signAndSend(from, res => {
         console.log(`tx status: ${res.status}`);
     });
+}
+
+const getMetadata = async (api: ApiPromise) => {
+    const metadata = await api.rpc.state.getMetadata();
+    return metadata.toString();
 }
 
 const subscirbeAccount = async (api: ApiPromise, account: KeyringPair) => {
@@ -43,7 +49,7 @@ const subscribeEvent = async (api: ApiPromise) => {
 }
 
 const main = async () => {
-    const api = await con();
+    const api = await connect();
     const keyring = new Keyring({ type: 'sr25519' });
     const alice = keyring.addFromUri('//Alice');
     const bob = keyring.addFromUri('//Bob');
@@ -57,6 +63,9 @@ const main = async () => {
 
     const new_balance = await getFreeBalance(api, bob.address);
     console.log(`bob balance is: ${new_balance.toHuman()}`);
+
+    const metadata = await getMetadata(api);
+    console.log(`metadata is: ${metadata}`);
 
     await subscirbeAccount(api, alice);
     await subscribeEvent(api);
