@@ -55,3 +55,13 @@
   <img width="1429" alt="转移凭证-1" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/46d51fb9-0a17-4688-a843-287ded0511db">
   <img width="1424" alt="转移凭证-2" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/610c56bb-6f73-4ad5-9797-44550cf2e31d">
   <img width="1441" alt="转移凭证-3" src="https://github.com/lihuineo/OneBlockSubstrateCourse/assets/161575076/058b4843-b5ca-4c02-b372-c9c81d63765c">
+
+作业六要求：  
+编写一个类型脚本程序来订阅template pallet中的值的更新（something）和event
+
+作业六解答：  
+client/query.ts, 其中subscribeSomething和subscribeSomethingStored定义订阅something和event的逻辑  
+验证截图：  
+
+
+
