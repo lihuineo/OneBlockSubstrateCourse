@@ -18,9 +18,27 @@ const getFreeBalance = async (api: ApiPromise, addr: string) => {
     return free;
 }
 
-const transfer = async (api: ApiPromise, alice: KeyringPair, bob: KeyringPair, amount: number) => {
-    await api.tx.balances.transfer(bob.address, amount).signAndSend(alice, res => {
+const transfer = async (api: ApiPromise, from: KeyringPair, to: KeyringPair, amount: number) => {
+    await api.tx.balances.transfer(to.address, amount).signAndSend(from, res => {
         console.log(`tx status: ${res.status}`);
+    });
+}
+
+const subscirbeAccount = async (api: ApiPromise, account: KeyringPair) => {
+    await api.query.system.account(account.address, aliceInfo => {
+        const free = aliceInfo.data.free;
+        console.log("subscribe account");
+        console.log(`free is: ${free.toHuman()}`);
+    });
+}
+
+const subscribeEvent = async (api: ApiPromise) => {
+    await api.query.system.events(events => {
+        console.log("subscribe event");
+        events.forEach(function (event) {
+            console.log(`index: ${event['event']['index']}`);
+            console.log(`data: ${event['event']['data']}`);
+        });
     });
 }
 
@@ -39,6 +57,11 @@ const main = async () => {
 
     const new_balance = await getFreeBalance(api, bob.address);
     console.log(`bob balance is: ${new_balance.toHuman()}`);
+
+    await subscirbeAccount(api, alice);
+    await subscribeEvent(api);
+
+    await sleep(50000);
 }
 
 main().then(() => {
